@@ -10,7 +10,7 @@ const Marks = ({
   lowerBound,
   max, min,
   onClickLabel,
-  computeStyle
+  computeStyle,
 }) => {
   const marksKeys = Object.keys(marks);
   const marksCount = marksKeys.length;
@@ -34,28 +34,28 @@ const Marks = ({
       [`${className}-text-active`]: isActive,
     });
 
+    /* eslint-disable no-shadow */
     const defaultComputeStyle = (info, vertical) => {
       const { point, min, range, markWidth } = info;
       const bottomStyle = {
         marginBottom: '-50%',
         bottom: `${(point - min) / range * 100}%`,
       };
-  
       const leftStyle = {
         width: `${markWidth}%`,
         marginLeft: `${-markWidth / 2}%`,
         left: `${(point - min) / range * 100}%`,
       };
-  
       const style = vertical ? bottomStyle : leftStyle;
       return style;
-    }
+    };
+    /* eslint-enable no-shadow */
     const style = (computeStyle || defaultComputeStyle)({
       point,
       min,
       max,
       range,
-      markWidth
+      markWidth,
     }, vertical);
 
     const markStyle = markPointIsObject ?
