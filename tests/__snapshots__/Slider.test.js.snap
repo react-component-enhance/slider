@@ -2,21 +2,21 @@
 
 exports[`Slider should render Slider with correct DOM structure 1`] = `
 <div
-  class="rc-slider"
+  class="rce-slider"
 >
   <div
-    class="rc-slider-rail"
+    class="rce-slider-rail"
   >
     
   </div>
   <div
-    class="rc-slider-track"
+    class="rce-slider-track"
     style="left:0%;width:0%"
   >
     
   </div>
   <div
-    class="rc-slider-step"
+    class="rce-slider-step"
   >
     
   </div>
@@ -25,7 +25,7 @@ exports[`Slider should render Slider with correct DOM structure 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
-    class="rc-slider-handle"
+    class="rce-slider-handle"
     role="slider"
     style="left:0%"
     tabindex="0"
@@ -33,7 +33,7 @@ exports[`Slider should render Slider with correct DOM structure 1`] = `
     
   </div>
   <div
-    class="rc-slider-mark"
+    class="rce-slider-mark"
   >
     
   </div>

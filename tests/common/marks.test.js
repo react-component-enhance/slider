@@ -9,16 +9,16 @@ describe('marks', () => {
     const marks = { 0: 0, 30: '30', 99: '', 100: '100' };
 
     const sliderWrapper = mount(<Slider value={30} marks={marks} />);
-    expect(sliderWrapper.find('.rc-slider-mark-text').length).toBe(3);
-    expect(sliderWrapper.find('.rc-slider-mark-text').at(0).instance().innerHTML).toBe('0');
-    expect(sliderWrapper.find('.rc-slider-mark-text').at(1).instance().innerHTML).toBe('30');
-    expect(sliderWrapper.find('.rc-slider-mark-text').at(2).instance().innerHTML).toBe('100');
+    expect(sliderWrapper.find('.rce-slider-mark-text').length).toBe(3);
+    expect(sliderWrapper.find('.rce-slider-mark-text').at(0).instance().innerHTML).toBe('0');
+    expect(sliderWrapper.find('.rce-slider-mark-text').at(1).instance().innerHTML).toBe('30');
+    expect(sliderWrapper.find('.rce-slider-mark-text').at(2).instance().innerHTML).toBe('100');
 
     const rangeWrapper = mount(<Range value={[0, 30]} marks={marks} />);
-    expect(rangeWrapper.find('.rc-slider-mark-text').length).toBe(3);
-    expect(rangeWrapper.find('.rc-slider-mark-text').at(0).instance().innerHTML).toBe('0');
-    expect(rangeWrapper.find('.rc-slider-mark-text').at(1).instance().innerHTML).toBe('30');
-    expect(rangeWrapper.find('.rc-slider-mark-text').at(2).instance().innerHTML).toBe('100');
+    expect(rangeWrapper.find('.rce-slider-mark-text').length).toBe(3);
+    expect(rangeWrapper.find('.rce-slider-mark-text').at(0).instance().innerHTML).toBe('0');
+    expect(rangeWrapper.find('.rce-slider-mark-text').at(1).instance().innerHTML).toBe('30');
+    expect(rangeWrapper.find('.rce-slider-mark-text').at(2).instance().innerHTML).toBe('100');
   });
 
   it.skip('should select correct value while click on marks', () => {
@@ -26,7 +26,7 @@ describe('marks', () => {
 
     const sliderWrapper = mount(<Slider marks={marks} />);
     sliderWrapper.node.sliderRef.clientWidth = 100; // jsdom doesn't provide clientWidth
-    const sliderMark = sliderWrapper.find('.rc-slider-mark-text').get(1);
+    const sliderMark = sliderWrapper.find('.rce-slider-mark-text').get(1);
     sliderWrapper.simulate('mousedown', {
       type: 'mousedown',
       target: sliderMark,
@@ -38,7 +38,7 @@ describe('marks', () => {
 
     const rangeWrapper = mount(<Range marks={marks} />);
     rangeWrapper.node.sliderRef.clientWidth = 100; // jsdom doesn't provide clientWidth
-    const rangeMark = rangeWrapper.find('.rc-slider-mark-text').get(1);
+    const rangeMark = rangeWrapper.find('.rce-slider-mark-text').get(1);
     rangeWrapper.simulate('mousedown', {
       type: 'mousedown',
       target: rangeMark,

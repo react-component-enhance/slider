@@ -1,4 +1,4 @@
-# rc-slider
+# rce-slider
 ---
 
 Slider UI component for React
@@ -10,18 +10,18 @@ Slider UI component for React
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/rc-slider.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/rc-slider
-[travis-image]: https://img.shields.io/travis/react-component/slider.svg?style=flat-square
-[travis-url]: https://travis-ci.org/react-component/slider
-[codecov-image]: https://img.shields.io/codecov/c/github/react-component/slider/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/react-component/slider/branch/master
-[gemnasium-image]: http://img.shields.io/gemnasium/react-component/slider.svg?style=flat-square
-[gemnasium-url]: https://gemnasium.com/react-component/slider
+[npm-image]: http://img.shields.io/npm/v/rce-slider.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/rce-slider
+[travis-image]: https://img.shields.io/travis/react-component-enhance/slider.svg?style=flat-square
+[travis-url]: https://travis-ci.org/react-component-enhance/slider
+[codecov-image]: https://img.shields.io/codecov/c/github/react-component-enhance/slider/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/react-component-enhance/slider/branch/master
+[gemnasium-image]: http://img.shields.io/gemnasium/react-component-enhance/slider.svg?style=flat-square
+[gemnasium-url]: https://gemnasium.com/react-component-enhance/slider
 [node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/rc-slider.svg?style=flat-square
-[download-url]: https://npmjs.org/package/rc-slider
+[download-image]: https://img.shields.io/npm/dm/rce-slider.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rce-slider
 
 ## Screenshots
 
@@ -41,21 +41,21 @@ Slider UI component for React
 ## Install
 
 ```bash
-npm install --save rc-slider
+npm install --save rce-slider
 ```
 
-[![rc-slider](https://nodei.co/npm/rc-slider.png)](https://npmjs.org/package/rc-slider)
+[![rce-slider](https://nodei.co/npm/rce-slider.png)](https://npmjs.org/package/rce-slider)
 
 ## Usage
 
 ````js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Slider, { Range } from 'rc-slider';
+import Slider, { Range } from 'rce-slider';
 // We can just import Slider or Range to reduce bundle size
-// import Slider from 'rc-slider/lib/Slider';
-// import Range from 'rc-slider/lib/Range';
-import 'rc-slider/assets/index.css';
+// import Slider from 'rce-slider/lib/Slider';
+// import Range from 'rce-slider/lib/Range';
+import 'rce-slider/assets/index.css';
 
 ReactDOM.render(
   <div>
@@ -73,19 +73,19 @@ ReactDOM.render(
 An extension to make Slider or Range support Tooltip on handle.
 
 ```jsx
-const Slider = require('rc-slider');
+const Slider = require('rce-slider');
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 ```
 
-[Online demo](http://react-component.github.io/slider/examples/handle.html)
+[Online demo](http://react-component-enhance.github.io/slider/examples/handle.html)
 
 After Range or Slider was wrapped by createSliderWithTooltip, it will have the following props:
 
 | Name         | Type    | Default | Description |
 | ------------ | ------- | ------- | ----------- |
 | tipFormatter | (value: number): React.ReactNode | `value => value` | A function to format tooltip's overlay |
-| tipProps | Object | `{` <br>`placement: 'top',` <br> ` prefixCls: 'rc-slider-tooltip',` <br> `overlay: tipFormatter(value)` <br> `}` | A function to format tooltip's overlay |
+| tipProps | Object | `{` <br>`placement: 'top',` <br> ` prefixCls: 'rce-slider-tooltip',` <br> `overlay: tipFormatter(value)` <br> `}` | A function to format tooltip's overlay |
 
 ### Common API
 
@@ -106,8 +106,8 @@ The following APIs are shared by Slider and Range.
 | onBeforeChange | Function | NOOP | `onBeforeChange` will be triggered when `ontouchstart` or `onmousedown` is triggered. |
 | onChange | Function | NOOP | `onChange` will be triggered while the value of Slider changing. |
 | onAfterChange | Function | NOOP | `onAfterChange` will be triggered when `ontouchend` or `onmouseup` is triggered. |
-| minimumTrackStyle | Object |  | please use  `trackStyle` instead. (`only used for slider, just for compatibility , will be deprecate at rc-slider@9.x `) |
-| maximumTrackStyle | Object |  | please use  `railStyle` instead (`only used for slider, just for compatibility , will be deprecate at rc-slider@9.x`) |
+| minimumTrackStyle | Object |  | please use  `trackStyle` instead. (`only used for slider, just for compatibility , will be deprecate at rce-slider@9.x `) |
+| maximumTrackStyle | Object |  | please use  `railStyle` instead (`only used for slider, just for compatibility , will be deprecate at rce-slider@9.x`) |
 | handleStyle | Array[Object] \| Object | `[{}]` | The style used for handle. (`both for slider(`Object`) and range(`Array of Object`), the array will be used for mutli handle follow element order`) |
 | trackStyle | Array[Object] \| Object | `[{}]` | The style used for track. (`both for slider(`Object`) and range(`Array of Object`), the array will be used for mutli track follow element order`)|w
 | railStyle | Object | `{}` | The style used for the track base color.  |
@@ -144,7 +144,7 @@ npm start
 
 `npm start` and then go to `http://localhost:8005/examples/`
 
-Online examples: [http://react-component.github.io/slider/](http://react-component.github.io/slider/)
+Online examples: [http://react-component-enhance.github.io/slider/](http://react-component-enhance.github.io/slider/)
 
 ## Test Case
 
@@ -156,4 +156,4 @@ Online examples: [http://react-component.github.io/slider/](http://react-compone
 
 ## License
 
-`rc-slider` is released under the MIT license.
+`rce-slider` is released under the MIT license.

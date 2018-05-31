@@ -1,5 +1,5 @@
 {
-  "name": "rc-slider",
+  "name": "rce-slider",
   "version": "8.6.1",
   "description": "Slider UI component for React",
   "keywords": [
@@ -10,13 +10,13 @@
     "input",
     "range"
   ],
-  "homepage": "http://github.com/react-component/slider/",
+  "homepage": "http://github.com/react-component-enhance/slider/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/slider.git"
+    "url": "git@github.com:react-component-enhance/slider.git"
   },
   "bugs": {
-    "url": "http://github.com/react-component/slider/issues"
+    "url": "http://github.com/react-component-enhance/slider/issues"
   },
   "files": [
     "assets/*.css",
@@ -31,7 +31,7 @@
   "config": {
     "port": 8005,
     "entry": {
-      "rc-slider": [
+      "rce-slider": [
         "./assets/index.less",
         "./src/index.js"
       ]

@@ -21,18 +21,18 @@ describe('Range', () => {
     const wrapper = mount(<Range value={[0, 50]} />);
     expect(wrapper.state('bounds')[0]).toBe(0);
     expect(wrapper.state('bounds')[1]).toBe(50);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(0).props().style.left).toMatch('0%');
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(1).props().style.left).toMatch('50%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(0).props().style.left).toMatch('0%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(1).props().style.left).toMatch('50%');
 
-    const trackStyle = wrapper.find('.rc-slider-track > .rc-slider-track').at(0).props().style;
+    const trackStyle = wrapper.find('.rce-slider-track > .rce-slider-track').at(0).props().style;
     expect(trackStyle.left).toMatch('0%');
     expect(trackStyle.width).toMatch('50%');
   });
 
   it('should render Range with tabIndex correctly', () => {
     const wrapper = mount(<Range tabIndex={[1, 2]} />);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(0).props().tabIndex).toEqual(1);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(1).props().tabIndex).toEqual(2);
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(0).props().tabIndex).toEqual(1);
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(1).props().tabIndex).toEqual(2);
   });
 
   it('should render Multi-Range with value correctly', () => {
@@ -41,20 +41,20 @@ describe('Range', () => {
     expect(wrapper.state('bounds')[1]).toBe(25);
     expect(wrapper.state('bounds')[2]).toBe(50);
     expect(wrapper.state('bounds')[3]).toBe(75);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(0).props().style.left).toMatch('0%');
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(1).props().style.left).toMatch('25%');
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(2).props().style.left).toMatch('50%');
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').at(3).props().style.left).toMatch('75%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(0).props().style.left).toMatch('0%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(1).props().style.left).toMatch('25%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(2).props().style.left).toMatch('50%');
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').at(3).props().style.left).toMatch('75%');
 
-    const track1Style = wrapper.find('.rc-slider-track > .rc-slider-track').at(0).props().style;
+    const track1Style = wrapper.find('.rce-slider-track > .rce-slider-track').at(0).props().style;
     expect(track1Style.left).toMatch('0%');
     expect(track1Style.width).toMatch('25%');
 
-    const track2Style = wrapper.find('.rc-slider-track > .rc-slider-track').at(1).props().style;
+    const track2Style = wrapper.find('.rce-slider-track > .rce-slider-track').at(1).props().style;
     expect(track2Style.left).toMatch('25%');
     expect(track2Style.width).toMatch('25%');
 
-    const track3Style = wrapper.find('.rc-slider-track > .rc-slider-track').at(2).props().style;
+    const track3Style = wrapper.find('.rce-slider-track > .rce-slider-track').at(2).props().style;
     expect(track3Style.left).toMatch('50%');
     expect(track3Style.width).toMatch('25%');
   });
@@ -74,10 +74,10 @@ describe('Range', () => {
     const wrapper = mount(<TestParent/>);
 
     expect(wrapper.instance().getSlider().state.bounds.length).toBe(3);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').length).toBe(3);
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').length).toBe(3);
     wrapper.setState({ value: [2, 4] });
     expect(wrapper.instance().getSlider().state.bounds.length).toBe(2);
-    expect(wrapper.find('.rc-slider-handle > .rc-slider-handle').length).toBe(2);
+    expect(wrapper.find('.rce-slider-handle > .rce-slider-handle').length).toBe(2);
   });
 
   it('should only update bounds that are out of range', () => {
@@ -91,13 +91,13 @@ describe('Range', () => {
   // https://github.com/react-component/slider/pull/256
   it('should handle mutli handle mouseEnter correctly', () => {
     const wrapper = mount(<RangeWithTooltip min={0} max={1000} defaultValue={[50, 55]} />);
-    wrapper.find('.rc-slider-handle').at(1).simulate('mouseEnter');
+    wrapper.find('.rce-slider-handle').at(1).simulate('mouseEnter');
     expect(wrapper.state().visibles[0]).toBe(true);
-    wrapper.find('.rc-slider-handle').at(3).simulate('mouseEnter');
+    wrapper.find('.rce-slider-handle').at(3).simulate('mouseEnter');
     expect(wrapper.state().visibles[1]).toBe(true);
-    wrapper.find('.rc-slider-handle').at(1).simulate('mouseLeave');
+    wrapper.find('.rce-slider-handle').at(1).simulate('mouseLeave');
     expect(wrapper.state().visibles[0]).toBe(false);
-    wrapper.find('.rc-slider-handle').at(3).simulate('mouseLeave');
+    wrapper.find('.rce-slider-handle').at(3).simulate('mouseLeave');
     expect(wrapper.state().visibles[1]).toBe(false);
   });
 
@@ -172,14 +172,14 @@ describe('Range', () => {
     expect(wrapper.instance().getSlider().state.bounds[0]).toBe(20);
     expect(wrapper.instance().getSlider().state.bounds[1]).toBe(40);
 
-    wrapper.find('.rc-slider').simulate('mouseDown', { button: 0, pageX: 0, pageY: 0 });
+    wrapper.find('.rce-slider').simulate('mouseDown', { button: 0, pageX: 0, pageY: 0 });
     map.mousemove({ type: 'mousemove', pageX: 30, pageY: 0 });
     map.mouseup({ type: 'mouseup', pageX: 30, pageY: 0 });
 
     expect(wrapper.instance().getSlider().state.bounds[0]).toBe(30);
     expect(wrapper.instance().getSlider().state.bounds[1]).toBe(40);
 
-    wrapper.find('.rc-slider').simulate('mouseDown', { button: 0, pageX: 0, pageY: 0 });
+    wrapper.find('.rce-slider').simulate('mouseDown', { button: 0, pageX: 0, pageY: 0 });
     map.mousemove({ type: 'mousemove', pageX: 50, pageY: 0 });
     map.mouseup({ type: 'mouseup', pageX: 50, pageY: 0 });
     expect(wrapper.instance().getSlider().state.bounds[0]).toBe(39);

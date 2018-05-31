@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import 'rc-slider/assets/index.less';
+import 'rce-slider/assets/index.less';
 import 'rc-tooltip/assets/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tooltip from 'rc-tooltip';
-import Slider from 'rc-slider';
+import Slider from 'rce-slider';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -15,7 +15,7 @@ const handle = (props) => {
   const { value, dragging, index, ...restProps } = props;
   return (
     <Tooltip
-      prefixCls="rc-slider-tooltip"
+      prefixCls="rce-slider-tooltip"
       overlay={value}
       visible={dragging}
       placement="top"

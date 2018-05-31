@@ -37,7 +37,7 @@ export default function createSliderWithTooltip(Component) {
       } = this.props;
 
       const {
-        prefixCls = 'rc-slider-tooltip',
+        prefixCls = 'rce-slider-tooltip',
         overlay = tipFormatter(value),
         placement = 'top',
         visible = visible || false,

@@ -1,33 +1,18 @@
 language: node_js
-
 sudo: false
-
 notifications:
   email:
-  - yiminghe@gmail.com
-  - hust2012jiangkai@gmail.com
-
+  - ZxBing0066@gmail.com
 node_js:
 - 6.0.0
-
-before_install:
-- |
-    if ! git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(\.md$)|(^(docs|examples))/'
-    then
-      echo "Only docs were updated, stopping build process."
-      exit
-    fi
-    phantomjs --version
-
 script:
 - |
-    if [ "$TEST_TYPE" = test ]; then
-      npm test -- --coverage && \
-      bash <(curl -s https://codecov.io/bash)
-    else
-      npm run $TEST_TYPE
-    fi
-
+  if [ "$TEST_TYPE" = test ]; then
+    npm test -- --coverage && \
+    bash <(curl -s https://codecov.io/bash)
+  else
+    npm run $TEST_TYPE
+  fi
 env:
   matrix:
   - TEST_TYPE=lint
@@ -36,8 +21,19 @@ env:
   global:
   - secure: S1VwbaPzLnSH/IUT/wlJulxAX5VHRIDmSt53h/ycHcZsszUpWcLCJRQAe0fTVB2dAx5MdBbSZ+o+tr3tRwVB5TRAYm0oTCsYAkOZaWOB28RuUQtdGt3wf9xxTG1UiPiaLLUW3waX9zAaf3yqKBcJGf1op0RD8dksxbCFw/7xVbU=
   - secure: EBEDg8k///IlEsnx0AE8X3mbFl0QE5+xGKbG4AxXlGZda12uTIPUSMKJzdZQ2hVbZXduTzf1cQl9rcu9nGoSnkL/DWnIax9cvHi+1orx5+YPlxPHNWAwWByTnHosBn2MJhfy1s5paJfHC9cUzmmEL6x4fYthWxjsPUo+irEZH6E=
-
-
 matrix:
   allow_failures:
-  - env: "TEST_TYPE=saucelabs"
+  - env: TEST_TYPE=saucelabs
+before_deploy: npm run compile
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    email: ZxBing0066@gmail.com
+    api_key:
+      secure: H2RhAL+ZrbjV109mSjImVJlF3FywxDizSWtFaSNNw9pQTftJJIGg9QLyYcSsaxOSR+CBxsfvBubpGa5XsME3diKxMjMbQkz5B2kHNjWXy5pxaZeuisv3+ut36z7XUA3XpAJlAuGHaDtX+Mu2rzcp6Psf7JxFBadgnNTtYtsppTNV4LdOP/4qHZXr6FnPzTSJ6s4Fnr9dA0vIUNr6aN0BYuGDCx9bM/4tLCjI5aKJJrJbBxZ3/L1fnULRteaV7lo72HGSw3BCwN2lwyz7h5Y0H9Uq1/GFMUZXCU36aJRhKbm2qW1CAJjGeSMqPSozTKF4qN9L+SXJWV+0DxsrosWKmw/iCO0+/xGxs78jWDW+u3gORu0EcVEo/xjuAU1/pMpuhn1tMZJBv2ovoJXbPrpflYPWuyNiWlhzXkrvRdw8A2Ov5b9ufSWZvkL0+Mt0XC+DaY/TdZoypRMJUGhdEqKigIew448Ao+XG1UkPkEQtX37T6YlSl13tWB4xNSaL8NRRLDEyd5pqKKE9jEf35rLmsPbrWNoI8MlKG+9Z/vew8jQ4lfBI6+6+HY8OC6ky5DgUHV60aAO7T3NY5wRf+s0Jpl6O7JfT5Fc3ANET0CZ/ZYDiBDo/gT0Tf3p2IdYUp6jwpGomIjs8/XM79genuuM9sh1OYUVajFyEQvJ6jcbt5PY=
+    on:
+      tags: true
+      branch: master
+      tag: next
+      condition: "$TEST_TYPE = lint"
+  

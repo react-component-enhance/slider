@@ -13,21 +13,21 @@ describe('Slider', () => {
   it('should render Slider with value correctly', () => {
     const wrapper = mount(<Slider value={50} />);
     expect(wrapper.state('value')).toBe(50);
-    expect(wrapper.find('.rc-slider-handle').at(1).props().style.left).toMatch('50%');
+    expect(wrapper.find('.rce-slider-handle').at(1).props().style.left).toMatch('50%');
 
-    const trackStyle = wrapper.find('.rc-slider-track').at(1).props().style;
+    const trackStyle = wrapper.find('.rce-slider-track').at(1).props().style;
     expect(trackStyle.left).toMatch('0%');
     expect(trackStyle.width).toMatch('50%');
   });
 
   it('should allow tabIndex to be set on Handle via Slider', () => {
     const wrapper = mount(<Slider tabIndex={1} />);
-    expect(wrapper.find('.rc-slider-handle').at(1).props().tabIndex).toEqual(1);
+    expect(wrapper.find('.rce-slider-handle').at(1).props().tabIndex).toEqual(1);
   });
 
   it('increases the value when key "up" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.UP });
@@ -37,7 +37,7 @@ describe('Slider', () => {
 
   it('increases the value when key "right" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.RIGHT });
@@ -47,7 +47,7 @@ describe('Slider', () => {
 
   it('increases the value when key "page up" is pressed, by a factor 2', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.PAGE_UP });
@@ -57,7 +57,7 @@ describe('Slider', () => {
 
   it('decreases the value when key "down" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.DOWN });
@@ -67,7 +67,7 @@ describe('Slider', () => {
 
   it('decreases the value when key "left" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.LEFT });
@@ -77,7 +77,7 @@ describe('Slider', () => {
 
   it('decreases the value when key "page down" is pressed, by a factor 2', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.PAGE_DOWN });
@@ -87,7 +87,7 @@ describe('Slider', () => {
 
   it('sets the value to minimum when key "home" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.HOME });
@@ -97,7 +97,7 @@ describe('Slider', () => {
 
   it('sets the value to maximum when the key "end" is pressed', () => {
     const wrapper = mount(<Slider defaultValue={50} />);
-    const handler = wrapper.find('.rc-slider-handle').at(1);
+    const handler = wrapper.find('.rce-slider-handle').at(1);
 
     wrapper.simulate('focus');
     handler.simulate('keyDown', { keyCode: keyCode.END });

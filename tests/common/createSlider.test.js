@@ -24,20 +24,20 @@ const setWidth = (object, width) => {
 describe('createSlider', () => {
   it('should render vertical Slider/Range, when `vertical` is true', () => {
     const sliderWrapper = mount(<Slider vertical />);
-    expect(sliderWrapper.find('.rc-slider-vertical').length).toBe(1);
+    expect(sliderWrapper.find('.rce-slider-vertical').length).toBe(1);
 
     const rangeWrapper = mount(<Range vertical />);
-    expect(rangeWrapper.find('.rc-slider-vertical').length).toBe(1);
+    expect(rangeWrapper.find('.rce-slider-vertical').length).toBe(1);
   });
 
   it('should render dots correctly when `dots=true`', () => {
     const sliderWrapper = mount(<Slider value={50} step={10} dots />);
-    expect(sliderWrapper.find('.rc-slider-dot').length).toBe(11);
-    expect(sliderWrapper.find('.rc-slider-dot-active').length).toBe(6);
+    expect(sliderWrapper.find('.rce-slider-dot').length).toBe(11);
+    expect(sliderWrapper.find('.rce-slider-dot-active').length).toBe(6);
 
     const rangeWrapper = mount(<Range value={[20, 50]} step={10} dots />);
-    expect(rangeWrapper.find('.rc-slider-dot').length).toBe(11);
-    expect(rangeWrapper.find('.rc-slider-dot-active').length).toBe(4);
+    expect(rangeWrapper.find('.rce-slider-dot').length).toBe(11);
+    expect(rangeWrapper.find('.rce-slider-dot-active').length).toBe(4);
   });
 
   it('should not set value greater than `max` or smaller `min`', () => {
@@ -70,13 +70,13 @@ describe('createSlider', () => {
     const handler = jest.fn();
 
     const sliderWrapper = mount(<Slider onChange={handler}/>);
-    const sliderHandleWrapper = sliderWrapper.find('.rc-slider-handle').at(1);
+    const sliderHandleWrapper = sliderWrapper.find('.rce-slider-handle').at(1);
     sliderHandleWrapper.simulate('mousedown');
     sliderHandleWrapper.simulate('mousemove');
     sliderHandleWrapper.simulate('mouseup');
 
     const rangeWrapper = mount(<Range onChange={handler}/>);
-    const rangeHandleWrapper = rangeWrapper.find('.rc-slider-handle-1').at(1);
+    const rangeHandleWrapper = rangeWrapper.find('.rce-slider-handle-1').at(1);
     rangeHandleWrapper.simulate('mousedown');
     rangeHandleWrapper.simulate('mousemove');
     rangeHandleWrapper.simulate('mouseup');
@@ -88,7 +88,7 @@ describe('createSlider', () => {
     const wrapper = mount(<Slider />);
 
     setWidth(wrapper.instance().sliderRef, 100);
-    const sliderTrack = wrapper.find('.rc-slider-track').get(0);
+    const sliderTrack = wrapper.find('.rce-slider-track').get(0);
     wrapper.simulate('touchstart', {
       type: 'touchstart',
       target: sliderTrack,
@@ -106,7 +106,7 @@ describe('createSlider', () => {
   it('should set `dragOffset` to correct value when the left handle is clicked off-center', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const leftHandle = wrapper.find('.rc-slider-handle').at(1).instance();
+    const leftHandle = wrapper.find('.rce-slider-handle').at(1).instance();
     wrapper.simulate('mousedown', {
       type: 'mousedown',
       target: leftHandle,
@@ -120,7 +120,7 @@ describe('createSlider', () => {
   it('should respect `dragOffset` while dragging the handle via MouseEvents', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const leftHandle = wrapper.find('.rc-slider-handle').at(1).instance();
+    const leftHandle = wrapper.find('.rce-slider-handle').at(1).instance();
     wrapper.simulate('mousedown', {
       type: 'mousedown',
       target: leftHandle,
@@ -142,7 +142,7 @@ describe('createSlider', () => {
   it('should not go to right direction when mouse go to the left', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const leftHandle = wrapper.find('.rc-slider-handle').at(1).instance();
+    const leftHandle = wrapper.find('.rce-slider-handle').at(1).instance();
     wrapper.simulate('mousedown', {
       type: 'mousedown',
       target: leftHandle,
@@ -164,7 +164,7 @@ describe('createSlider', () => {
   it('should set `dragOffset` to 0 when the MouseEvent target isn\'t a handle', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const sliderTrack = wrapper.find('.rc-slider-track').get(0);
+    const sliderTrack = wrapper.find('.rce-slider-track').get(0);
     wrapper.simulate('mousedown', {
       type: 'mousedown',
       target: sliderTrack,
@@ -178,7 +178,7 @@ describe('createSlider', () => {
   it('should set `dragOffset` to correct value when the left handle is touched off-center', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const leftHandle = wrapper.find('.rc-slider-handle').at(1).instance();
+    const leftHandle = wrapper.find('.rce-slider-handle').at(1).instance();
     wrapper.simulate('touchstart', {
       type: 'touchstart',
       target: leftHandle,
@@ -192,7 +192,7 @@ describe('createSlider', () => {
   it('should respect `dragOffset` while dragging the handle via TouchEvents', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const leftHandle = wrapper.find('.rc-slider-handle').at(1).instance();
+    const leftHandle = wrapper.find('.rce-slider-handle').at(1).instance();
     wrapper.simulate('touchstart', {
       type: 'touchstart',
       target: leftHandle,
@@ -214,7 +214,7 @@ describe('createSlider', () => {
   it('should set `dragOffset` to 0 when the TouchEvent target isn\'t a handle', () => {
     const wrapper = mount(<Slider />);
     setWidth(wrapper.instance().sliderRef, 100);
-    const sliderTrack = wrapper.find('.rc-slider-track').get(0);
+    const sliderTrack = wrapper.find('.rce-slider-track').get(0);
     wrapper.simulate('touchstart', {
       type: 'touchstart',
       target: sliderTrack,
