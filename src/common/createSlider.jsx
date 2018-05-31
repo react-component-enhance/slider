@@ -41,6 +41,7 @@ export default function createSlider(Component) {
       autoFocus: PropTypes.bool,
       onFocus: PropTypes.func,
       onBlur: PropTypes.func,
+      computeMarkStyle: PropTypes.func
     };
 
     static defaultProps = {
@@ -280,6 +281,7 @@ export default function createSlider(Component) {
         railStyle,
         dotStyle,
         activeDotStyle,
+        computeMarkStyle
       } = this.props;
       const { tracks, handles } = super.render();
 
@@ -332,6 +334,7 @@ export default function createSlider(Component) {
             included={included}
             lowerBound={this.getLowerBound()}
             upperBound={this.getUpperBound()}
+            computeStyle={computeMarkStyle}
             max={max}
             min={min}
           />
